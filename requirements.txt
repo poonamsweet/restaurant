@@ -42,7 +42,9 @@ msgpack==1.0.2
 numpy==1.20.2
 odfpy==1.4.1
 openpyxl==3.0.7
+p5py==1.0.0
 pandas==1.2.4
+pep517==0.10.0
 phonenumbers==8.12.21
 Pillow==8.2.0
 psycopg2==2.8.6
@@ -62,6 +64,7 @@ six==1.15.0
 soupsieve==2.2.1
 sqlparse==0.3.1
 tablib==3.0.0
+toml==0.10.2
 tornado==6.1
 Twisted==21.2.0
 twisted-iocpsupport==1.0.1
