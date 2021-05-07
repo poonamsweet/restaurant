@@ -1,0 +1,149 @@
+{% extends 'info/main.html'%}
+{% load static %}
+{% block content %}
+
+
+<style type="text/css">
+  .portfolio-details {
+  padding: 30px 0 60px 0;
+}
+
+.portfolio-details .portfolio-details-container {
+  position: relative;
+}
+
+.portfolio-details .portfolio-details-carousel {
+  position: relative;
+  z-index: 1;
+}
+
+.portfolio-details .portfolio-details-carousel .owl-nav, .portfolio-details .portfolio-details-carousel .owl-dots {
+  margin-top: 5px;
+  text-align: left;
+}
+
+.portfolio-details .portfolio-details-carousel .owl-dot {
+  display: inline-block;
+  margin: 0 10px 0 0;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #ddd !important;
+}
+
+.portfolio-details .portfolio-details-carousel .owl-dot.active {
+  background-color: #5846f9 !important;
+}
+
+.portfolio-details .portfolio-info {
+  padding: 30px;
+  position: absolute;
+  right: 0;
+  bottom: -70px;
+  background: #fff;
+  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+
+.portfolio-details .portfolio-info h3 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.portfolio-details .portfolio-info ul {
+  list-style: none;
+  padding: 0;
+  font-size: 15px;
+}
+
+.portfolio-details .portfolio-info ul li + li {
+  margin-top: 10px;
+}
+
+.portfolio-details .portfolio-description {
+  padding-top: 50px;
+}
+
+.portfolio-details .portfolio-description h2 {
+  width: 50%;
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.portfolio-details .portfolio-description p {
+  padding: 0 0 0 0;
+}
+
+@media (max-width: 768px) {
+  .portfolio-details .portfolio-info {
+    position: static;
+    margin-top: 30px;
+  }
+}
+
+</style>
+ <main id="main">
+
+    <!-- ======= Breadcrumbs Section ======= -->
+    <section class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>Where Are You ?</h2>
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li>Event</li>
+          </ol>
+        </div>
+
+      </div>
+    </section><!-- End Breadcrumbs Section -->
+
+     <!-- ======= Gallery Section ======= -->
+    <section id="gallery" class="gallery">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Event Gallery</h2>
+          <p>LIKe every aspiring company Synaptrcis also organised many event related to social awarness , motivation or encouraging session with senior or team lead. Here is the place where you can find the lot of event moments which we spend with our valubale employee , mates and our Team. Stay motivated stay high and be on wall ;)   </p>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="row no-gutters">
+            <div class="container -fluid  " style=" margin-top: 100px;">
+              <div class="row " style="margin:auto; padding: auto; margin-left: 10%; ">
+                {% for img in gallary_list %}
+                
+                      <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+                        <div class="portfolio-wrap">
+                          <img src="{{img.mediaURL}}" class="img-fluid" alt="">
+                          <div class="portfolio-info">
+                            <h3 class="text-white">Synaptrcis Event Pic  </h3>
+                            <h4></h4>
+                            <p><strike></strike>
+                              <b></b>
+                              <span> </span></p>
+                          </div>
+                        </div>
+                      </div>
+
+                {% endfor %}
+              </div>
+            </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Gallery Section -->
+
+
+  </main><!-- End #main -->
+
+
+{% endblock content %}
+

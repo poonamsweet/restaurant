@@ -1,0 +1,95 @@
+{% extends 'report/main3.html'%}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+
+
+<div class="container"> 
+  <div class="row">
+    <div class="col-md-6 sm-10" style="margin-top: 10px;">
+      <div class="card promoting-card shadow">
+          <style type="text/css">
+            .collapse-content .fa.fa-heart:hover {
+          color: #f44336 !important;
+        }
+        .collapse-content .fa.fa-share-alt:hover {
+          color: #0d47a1 !important;
+        }
+          </style>
+
+          <!-- Card content -->
+          <div class="card-body d-flex flex-row">
+            <div>
+
+              <!-- Title -->
+              <h4 class="card-title font-weight-bold mb-2">Leave Application TO H.R Department </h4>
+
+              <p class="pt-2">
+                
+                 <form method="post">
+                            <fieldset>
+                              <legend> Enter Reason Of Leave   </legend>
+                                {% csrf_token %}
+                                  {{ form|crispy }}
+                                  <button class="btn btn-primary" type="submit"> Send </button>
+
+                              </fieldset>
+                            <br>
+                          </form>       
+
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+        <!-- Card -->
+
+    </div>
+
+        <div class="col-md-6 sm-10" style="margin-top: 10px;">
+      <div class="card promoting-card shadow">
+          <style type="text/css">
+            .collapse-content .fa.fa-heart:hover {
+          color: #f44336 !important;
+        }
+        .collapse-content .fa.fa-share-alt:hover {
+          color: #0d47a1 !important;
+        }
+          </style>
+
+          <!-- Card content -->
+          <div class="card-body d-flex flex-row">
+            <div>
+
+              <!-- Title -->
+              <h4 class="card-title font-weight-bold mb-2">How its Works ? </h4>
+
+              <p class="pt-2">
+                
+                 Apply Leave to your senior and wait to get it approved you got approval om mail ! <bR>
+                 Describe  reason of your leave as you are one f among our precious employee ;) <br>
+                 we like to know reason in Breif. 
+              </p>
+
+
+              <p class="pt-2" style="font-size: 10px;">
+                
+                 ** Do not worry about your application name and date of leave submission.<br>
+                 website take care of it ;) 
+              </p>
+               
+
+            </div>
+
+          </div>
+
+        </div>
+        <!-- Card -->
+
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

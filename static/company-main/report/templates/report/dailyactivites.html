@@ -1,0 +1,95 @@
+{% extends 'report/main3.html'%}
+{% load static %}
+{% block content %}
+	
+
+	
+<div class="container mt-3">
+	<div class="row">
+		<div class="col-md-2 sm-2">
+			<div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+		  	<div class="card-header text-dark"><span class="badge badge-primary" style="font-size: 14px;">Work @ </span><br> <span class="badge badge-warning" style="font-size: 14px;"> Field </span></div>
+			  	<div class="card-body">
+			    	<a href="{% url 'fieldactivites' %}" class="card-link"><li class="list-group-item">Yes</li></a>
+			  	</div>
+			</div>
+		</div>
+		<div class="col-md-2 sm-2">
+			<div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+		  	<div class="card-header text-dark"><span class="badge badge-primary" style="font-size: 14px;">Work @ </span><br> <span class="badge badge-warning" style="font-size: 14px;">Meeting </span> </div>
+			  	<div class="card-body">
+			    	<a href="{% url 'meetingactivites' %}" class="card-link"><li class="list-group-item">Yes </li></a>
+			  	</div>
+			</div>
+		</div>
+		<div class="col-md-2 sm-2">
+			<div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+		  	<div class="card-header text-dark"><span class="badge badge-primary" style="font-size: 14px;">Work @</span> <br> <span class="badge badge-warning" style="font-size: 14px;"> From Home </span> </div>
+			  	<div class="card-body">
+			    	<a href="{% url 'workfromhomeactivites' %}" class="card-link"><li class="list-group-item">Yes </li></a>
+			  	</div>
+			</div>
+		</div>
+		<div class="col-md-2 sm-2">
+			<div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+		  	<div class="card-header text-dark"><span class="badge badge-primary" style="font-size: 14px;">Work @ </span> <br> <span class="badge badge-warning" style="font-size: 14px;"> covid19 </span> </div>
+			  	<div class="card-body">
+			    	<a href="{% url 'covidactivites' %}" class="card-link"><li class="list-group-item">yes </li></a>
+			  	</div>
+			</div>
+		</div>
+        <div class="col-md-2 sm-2">
+      <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+        <div class="card-header text-dark"><span class="badge badge-primary" style="font-size: 14px;">Work @ </span> <br> <span class="badge badge-warning" style="font-size: 14px;"> Other </span> </div>
+          <div class="card-body">
+            <a href="{% url 'otheractivites' %}" class="card-link"><li class="list-group-item">yes </li></a>
+          </div>
+      </div>
+    </div>
+    <div class="col-md-2 sm-2">
+      <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+        <div class="card-header text-dark"><span class="badge badge-primary" style="font-size: 14px;">Work @ </span>  <br> <span class="badge badge-warning" style="font-size: 14px;"> Admin Day </span> </div>
+          <div class="card-body">
+            <a href="{% url 'admindayactivites' %}" class="card-link"><li class="list-group-item">yes </li></a>
+          </div>
+      </div>
+    </div>
+		<!--<div class="card-body">
+		    <a href="{% url 'login' %}" class="card-link">Already Have a Account !</a>
+		    <a href="{% url 'password_reset' %}" class="card-link">Forget Password</a>
+		</div> -->
+
+
+  	</div>
+
+  	<div class="row">
+  		<div class="card text-white bg-primary mb-3" style="max-width: 50rem; padding: 20px;">
+  		Choose your Daily Activity Work Option, Choose from abouve option what you did today and report as per pathway you are going with .  	
+  		</div>
+  		</div>
+</div>
+		
+{% endblock content %}
+
+
+
+<!--<div class="card" style="width: 30rem;">
+		  
+		  <div class="card-body text-center">
+		    <h5 class="card-title">Wanna Register Yourself ?</h5>
+		    <p class="card-text">This Register Page is only for Synaptrics Lifescience employee to register theirself with thier Role in company .</p>
+		  </div>
+		  <ul class="list-group list-group-flush">
+		    <a href="{% url 'se_register' %}" class="card-link"><li class="list-group-item">Sign Up as Sales Executive</li></a>
+		    <a href="{% url 'abm_register' %}" class="card-link"><li class="list-group-item">Sign Up as ABM</li></a>
+		    <a href="{% url 'rbm_register' %}" class="card-link"><li class="list-group-item">Sign Up as RBM</li></a>
+		    <a href="{% url 'zbm_register' %}" class="card-link"><li class="list-group-item">Sign Up as ZBM</li></a>
+
+		  </ul>
+		  <div class="card-body">
+		    <a href="{% url 'login' %}" class="card-link">Already Have a Account !</a>
+		    <a href="#" class="card-link">Forget Password</a>
+		  </div>
+		</div>
+	</div>
+</div>-->

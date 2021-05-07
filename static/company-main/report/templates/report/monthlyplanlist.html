@@ -1,0 +1,55 @@
+{% extends 'report/main3.html'%}
+{% load crispy_forms_tags %}
+{% block content %}
+
+
+
+<!-- DataTales Example -->
+          <div class="card shadow mb-4">
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary">Monthly plan List </h6>
+              <a href="{% url 'month-planing' %}"> Enter Plan</a>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  <thead>
+                    <tr>
+                      <th>Doctor Name</th>
+                      <th>Plan Day</th>
+                      <th>User</th>
+                      
+                    </tr>
+                  </thead>
+                  <tfoot>
+                    <tr>
+                      <th>Doctor Name</th>
+                      <th>Plan Day</th>
+                      <th>User</th>
+                      
+                    </tr>
+                  </tfoot>
+
+                  <tbody>
+
+                      {% for plan in monthlyplan %}
+                          <tr>
+                           <td> {{ plan.doctor_name }}</td>
+                          <td> {{ plan.plan_date }}</td>
+                          <td> {{ plan.user }}</td>
+                          </tr>
+                        {% endfor %}                    
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <!-- /.container-fluid -->
+       
+</div>
+</section>
+
+
+{% endblock content %}

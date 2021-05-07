@@ -1,0 +1,75 @@
+{% extends 'info/main.html'%}
+{% load crispy_forms_tags %}
+{% block content %}
+
+    <!-- ======= Breadcrumbs Section ======= -->
+    <section class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>Where Are You ?</h2>
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li>Contact Page</li>
+          </ol>
+        </div>
+
+      </div>
+    </section><!-- End Breadcrumbs Section -->
+      <section class="inner-page">
+      <div class="container">
+            <!-- ======= About Section ======= -->
+    <section id="about3" class="about3">
+      <div class="container-fluid">
+
+        <div class="row">
+          <div class="col-xl-7 col-lg-7 video-box d-flex justify-content-center align-items-stretch">
+            
+          </div>
+
+          <div class="col-xl-5 col-lg-5 icon-boxes d-flex flex-column align-items-stretch justify-content-center py-5 px-lg-5">
+            <h3>Write To Us –</h3>   
+
+				<form method="post">
+						<fieldset>
+							<legend> Enter Details  </legend>
+								{% csrf_token %}
+						    	{{ form|crispy }}
+						    	<button class="btn btn-primary" type="submit"> Send </button>
+
+					    </fieldset>
+				    <br>
+					</form>           
+
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Section -->
+	</div>
+</section>
+
+<!-- <section>
+ <div class="container">   
+	<div class="container " style="width: 40rem">
+    	<div class="card center" >
+      		<div class="card-body shadow ">
+          		<div class="content-section border-bottom m-5 ">
+			
+					<form method="post">
+						<fieldset>
+							<legend>Write to Us </legend>
+								{% csrf_token %}
+						    	{{ form|crispy }}
+						    	<button class="btn btn-primary" type="submit"> Submit </button>
+
+					    </fieldset>
+				    <br>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</section> -->
+{% endblock content %}

@@ -1,0 +1,52 @@
+{% extends 'report/main3.html'%}
+{% load crispy_forms_tags %}
+{% block content %}
+
+
+
+<!-- DataTales Example -->
+          <div class="card shadow mb-4">
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary">Leave List </h6>
+              <a href="{% url 'leave-hr' %}"> Add Leave</a>
+            </div>
+                     {% for leaves in leave %}
+           <div class="container-fluid"> 
+     
+
+                      <div class="card-body d-flex flex-row">
+                          <div>
+
+                            <!-- Title -->
+                            <h4 class="card-title font-weight-bold mb-2">Leave Application by {{user.username}} on {{ leaves.date }}  </h4>
+
+                            <p class="pt-2">
+                              
+                              Reason Of Application - {{leaves.reason}}
+                            </p>
+
+
+                            <p class="pt-2 badge badge-warning" style="font-size: 10px;">
+                              leave submit report 
+                            </p>
+                             
+
+                          </div>
+          </div>
+
+            ========================================
+                    
+          </div>
+                {% endfor %} 
+          </div>
+
+        </div>
+        <!-- /.container-fluid -->
+   
+
+</div>
+</section>
+
+
+{% endblock content %}
+

@@ -1,0 +1,95 @@
+{% extends 'report/main3.html'%}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+
+
+<div class="container"> 
+  <div class="row">
+    <div class="col-md-6 sm-10" style="margin-top: 10px;">
+      <div class="card promoting-card shadow">
+          <style type="text/css">
+            .collapse-content .fa.fa-heart:hover {
+          color: #f44336 !important;
+        }
+        .collapse-content .fa.fa-share-alt:hover {
+          color: #0d47a1 !important;
+        }
+          </style>
+
+          <!-- Card content -->
+          <div class="card-body d-flex flex-row">
+            <div>
+
+              <!-- Title -->
+              <h4 class="card-title font-weight-bold mb-2">MOnthly PLan </h4>
+
+              <p class="pt-2">
+                
+                 <form method="post">
+                            <fieldset>
+                              <legend> Enter Plan Day And Doctor    </legend>
+                                {% csrf_token %}
+                                  {{ form|crispy }}
+                                  <button class="btn btn-primary" type="submit"> Send </button>
+
+                              </fieldset>
+                            <br>
+                          </form>       
+
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+        <!-- Card -->
+
+    </div>
+
+        <div class="col-md-6 sm-10" style="margin-top: 10px;">
+      <div class="card promoting-card shadow">
+          <style type="text/css">
+            .collapse-content .fa.fa-heart:hover {
+          color: #f44336 !important;
+        }
+        .collapse-content .fa.fa-share-alt:hover {
+          color: #0d47a1 !important;
+        }
+          </style>
+
+          <!-- Card content -->
+          <div class="card-body d-flex flex-row">
+            <div>
+
+              <!-- Title -->
+              <h4 class="card-title font-weight-bold mb-2">HOw its Works ? </h4>
+
+              <p class="pt-2">
+                
+                 Apply Leave to your senior and wait to get it approved ! 
+              </p>
+
+                <p class="pt-2">
+                
+                 {% for i in leave %}
+                    {{i.user}}
+                    {{i.reason}}
+                    {{i.date}}
+
+                 {% endfor %} 
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+        <!-- Card -->
+
+    </div>
+  </div>
+</div>
+
+{% endblock content %}
