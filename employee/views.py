@@ -52,7 +52,7 @@ def emaiverify(request):
 class Employee_Register(CreateView):
     model = Employee_Profile
     form_class = EmployeeSignUpForm
-    template_name = 'employee/admin_register.html'
+    template_name = 'employee/emp_register.html'
 
     def form_valid(self,form):
         user = form.save()
