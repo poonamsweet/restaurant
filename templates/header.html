@@ -6,80 +6,18 @@
       <div class="logo mr-auto"  >
         <!-- <h1 class="text-light"><a href="index.html"><span>Arnoc</span></a></h1> -->
         <!-- Uncomment below if you prefer to use an image logo -->
-        <a href="index.html"><img  src="static\assets1\img\logohome1.png" alt="" class="img-fluid", style="max-width:200% ; max-height: 100px;"><br></a>
+        <a href="index.html"><img  src="static\assets1\img\logohome1.png" alt="" , style="max-width:300% ; max-height: 50px;"><br></a>
         
       </div>
 
-      <nav class="nav-menu d-none d-lg-block">
+      <nav class="nav-menu">
         <ul>
-          <li class="active"><a href="#header">Home</a></li>
-          <li><a href="">About</a></li>
-          <li class="drop-down"><a href="#services">Services</a>
-            <ul>
-              <li><a href="">Seminar</a></li>
-              <li><a href="#">Workshop</a></li>
-              <li><a href="">Training</a></li>
-              <li><a href="">Internship</a></li>
-              <li><a href="">Job</a></li>
-              <li><a href=""> Industrial Training</a></li>
+          <li class="active"><a href="#header" >Home</a></li>
+          <li><a href="" style="font-size: 15px; padding-bottom: 15px;">About</a></li>
+            <li  style="font-size: 10px;"><a href="">logout</a></li>
 
-            </ul>
-          </li>
-          <!-- <li><a href="#team">Team</a></li> -->
-          <li><a href="">Contact</a></li>
-
-
-          <li><a href="">Post Job</a></li>
-
-          <li><a href="">Company Page</a></li>
-
-
-
-
-
-
-
-
-          {% if user.is_authenticated %}
-
-          {% url 'dashboard' as url_path %}
-          {% if request.path == url_path %}
-          <li class="drop-down"><a href="{% url 'profile' %}">
-              <img class="avatar" src="{% static  'src/assets/images/faces/face10.jpg' %} " alt="" style="  vertical-align: middle;
-                  width: 50px;
-                  height: 50px;
-                  border-radius: 50%;"></a>
-            <ul>
-              <li><a href="{% url 'account_logout' %}">Logout</a></li>
-              <li><a href="#">Settings</a></li>
-              <li><a href="{% url 'profile' %}">profile</a></li>
-
-
-
-
-            </ul>
-          </li>
-          <!-- {% if designations %}
-          {% if company_page == True %} -->
-
-
-          <!-- {% else %} -->
-
-
-
-
-
-          <!-- {% endif %}
-          {% endif %} -->
-
-          {% else %}
-
-          <li class="get-started"><a href="{% url 'account_logout' %}">logout</a></li>
-
-          {% endif %}
-          {% else %}
-          <li class="get-started"><a href="{% url 'account_login' %}">login</a></li>
-          {% endif %}
+            
+          
 
         </ul>
       </nav><!-- .nav-menu -->

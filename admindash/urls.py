@@ -15,9 +15,9 @@ urlpatterns = [
     # path('register/', register, name='register'),
     path('adminregister/', Admin_Register.as_view(), name='adminregister'),
     path('admindashboard/', AdminDashboard, name='admindashboard'),
-    path('emailverify/', emaiverify, name="emaiverify"),
+    path('adminemailverify/', emaiverify, name="adminemailverify"),
     path('validate_email', csrf_exempt(EmailValidationView.as_view()), name='validate_email'),
-    path('activate/<uidb64>/<token>', VerificationView.as_view(), name='activate'),
+    path('adminactivate/<uidb64>/<token>', VerificationView.as_view(), name='adminactivate'),
     path('adminlogin/', AdminLogin, name='adminlogin'),
     path('adminlogout/', Logout, name='adminlogout'),
 

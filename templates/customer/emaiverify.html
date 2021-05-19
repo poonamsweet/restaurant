@@ -1,5 +1,5 @@
 
-{% extends 'customer/main2.html'%}
+<!-- {% extends 'customer/main2.html'%} -->
 {% load static %}
 {% block content %}
 <div class="container"> 
@@ -32,6 +32,7 @@
 
 				</div>
 				<!-- Card -->
+				<a href="{% url  'customerlogin' %}"></a>
 
 		</div>
 	</div>
@@ -58,7 +59,6 @@
 
 		  </ul>
 		  <div class="card-body">
-		    <a href="{% url 'login' %}" class="card-link">Already Have a Account !</a>
 		    <a href="#" class="card-link">Forget Password</a>
 		  </div>
 		</div>

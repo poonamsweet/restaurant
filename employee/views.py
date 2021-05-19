@@ -44,7 +44,7 @@ def register(request):
 
 
 def emaiverify(request):
-    return render(request,'emaiverify.html')
+    return render(request,'employee/emaiverify.html')
 
 
 
@@ -65,7 +65,7 @@ class Employee_Register(CreateView):
             'token': account_activation_token.make_token(user),
             }
 
-        link = reverse('activate', kwargs={
+        link = reverse('employeeactivate', kwargs={
                                 'uidb64': email_body['uid'], 'token': email_body['token']})
         email_subject = 'Activate your account'
         activate_url = 'http://' + current_site.domain + link
@@ -74,7 +74,7 @@ class Employee_Register(CreateView):
             'Hi ' + user.username + ', Please the link below to activate your account \n' + activate_url,
              'noreply@semycolon.com',[email],)
         email.send(fail_silently=False)
-        return redirect('emaiverify')
+        return redirect('employeeemailverify')
 
 class VerificationView(View):
     def get(self, request, uidb64, token):
@@ -83,19 +83,19 @@ class VerificationView(View):
             user = User.objects.get(pk=id)
 
             if not account_activation_token.check_token(user, token):
-                return redirect('login'+'?message='+'User already activated')
+                return redirect('employeelogin'+'?message='+'User already activated')
 
             if user.is_active:
-                return redirect('login')
+                return redirect('employeelogin')
             user.is_active = True
             user.save()
             messages.success(request, 'Account activated successfully')
-            return redirect('login')
+            return redirect('employeelogin')
 
         except Exception as ex:
             pass
 
-        return redirect('login')
+        return redirect('employeelogin')
 
 def EmployyLogin(request):
     if request.method == 'POST':

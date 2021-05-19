@@ -25,7 +25,7 @@ GENDER_CHOICES = (
 )
 
 class Customer_Profile(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     image = models.ImageField(upload_to='images/',null=True,blank=True)
     gender = models.CharField(max_length=32, choices=GENDER_CHOICES, default="select",null=True,blank=True)
     dateofbirth = models.DateField(null=True,blank=True)
@@ -40,14 +40,35 @@ class Customer_Profile(models.Model):
 
 
 class Book_Table(models.Model):
-      customer  = models.ForeignKey(Customer_Profile,on_delete=models.CASCADE)
+      customervalue  = models.ForeignKey(Customer_Profile,on_delete=models.CASCADE)
       book_date = models.DateField(blank=True)
       book_time = models.TimeField(blank=True)
       place     = models.CharField(max_length=25)
 
 
       def __str__(self):
-          return self.customer.user.username
+          return self.place
+
+
+
+class UnknownUserBookTable(models.Model):
+      name = models.CharField(max_length=35)
+      email = models.EmailField()
+      phone =  PhoneNumberField(unique=True,null=True,blank=True)
+      date = models.DateField(blank=True)
+      time = models.TimeField(blank=True)
+      people = models.IntegerField()
+      message = models.TextField()
+
+
+      def __str__(self):
+          return self.name
+
+
+
+    
+    
+
 
 
 

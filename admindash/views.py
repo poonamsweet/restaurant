@@ -43,7 +43,7 @@ class EmailValidationView(View):
 
 
 def emaiverify(request):
-    return render(request,'emaiverify.html')
+    return render(request,'admin/emaiverify.html')
 
 
 
@@ -64,7 +64,7 @@ class Admin_Register(CreateView):
             'token': account_activation_token.make_token(user),
             }
 
-        link = reverse('activate', kwargs={
+        link = reverse('adminactivate', kwargs={
                                 'uidb64': email_body['uid'], 'token': email_body['token']})
         email_subject = 'Activate your account'
         activate_url = 'http://' + current_site.domain + link
@@ -74,7 +74,7 @@ class Admin_Register(CreateView):
              'noreply@semycolon.com',[email],)
         print(email)
         email.send(fail_silently=False)
-        return redirect('emaiverify')
+        return redirect('adminemailverify')
 
 
 class VerificationView(View):
@@ -84,19 +84,19 @@ class VerificationView(View):
             user = User.objects.get(pk=id)
 
             if not account_activation_token.check_token(user, token):
-                return redirect('login'+'?message='+'User already activated')
+                return redirect('adminlogin'+'?message='+'User already activated')
 
             if user.is_active:
-                return redirect('login')
+                return redirect('adminlogin')
             user.is_active = True
             user.save()
             messages.success(request, 'Account activated successfully')
-            return redirect('login')
+            return redirect('adminlogin')
 
         except Exception as ex:
             pass
 
-        return redirect('login')
+        return redirect('adminlogin')
 
 def AdminLogin(request):
     if request.method == 'POST':

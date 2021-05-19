@@ -98,24 +98,8 @@ class EmployeeSignUpForm(UserCreationForm):
         cp.save()
         return user
 
-        # else:
-        #     user.is_staff = True
-        #     user.first_name = self.cleaned_data.get('first_name')
-        #     user.last_name = self.cleaned_data.get('last_name')
-        #     user.email = self.cleaned_data.get('email')
-        #     user.save()
-        #     cp = Staff_Profile.objects.create(user=user)
-        #
-        #     cp.image = self.cleaned_data.get('image')
-        #     cp.gender = self.cleaned_data.get('gender')
-        #     cp.dateofbirth = self.cleaned_data.get('dateofbirth')
-        #     cp.present_location = self.cleaned_data.get('present_location')
-        #     cp.permanent_address = self.cleaned_data.get('permanent_address')
-        #     cp.local_address = self.cleaned_data.get('local_address')
-        #     cp.mobile = self.cleaned_data.get('mobile')
-        #     cp.save()
-        #     return user
-
+   
+   
 
 
 

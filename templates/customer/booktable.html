@@ -1,4 +1,4 @@
-{% extends 'info/main.html'%}
+{% extends 'base.html'%}
 {% load static %}
 {% load crispy_forms_tags %}
 {% block content %}
@@ -11,7 +11,9 @@
           <h2>Where Are You ?</h2>
           <ol>
             <li><a href="index.html">Home</a></li>
-            <li>Book Table</li>
+            <li><a href="index.html">Welcome  {{request.user}}</a></li>
+
+
           </ol>
         </div>
 
@@ -46,10 +48,10 @@
             <p class="card-text  pt-3">
               <i class="far fa-clock pr-2">
 
-                  <form action="{% url 'book' %}" method="POST">
+                  <form action="" method="POST">
                       {% csrf_token %}
                       <fieldset class="form-group">
-                        <legend class="border-bottom mb-4">Welcome To Book Table </legend>
+                        <legend class="border-bottom mb-4" style="color: black;">Welcome To Book Table </legend>
                         {{ form | crispy }}
                       </fieldset>
                       <div class="form-group">

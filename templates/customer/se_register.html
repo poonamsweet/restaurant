@@ -3,7 +3,7 @@
 {% load crispy_forms_tags %}
 {% block content %}
   
-      <!-- ======= Breadcrumbs Section ======= -->
+
     <section class="breadcrumbs">
       <div class="container">
 
@@ -11,20 +11,21 @@
           <h2>Where Are You ?</h2>
           <ol>
             <li><a href="index.html">Home</a></li>
-            <li>Customer Registration Page</li>
+            <li>Employee Attandance Form</li>
           </ol>
         </div>
+
 
       </div>
     </section><!-- End Breadcrumbs Section -->
 
-<div class="container" style="margin-top: 50px; width: 50rem;" >
+<div class="container" style="margin-top: 50px; width: 50rem;color: black" >
   <div class="row">
     <div class="col-md-10 sm-6" style="padding: 10px;">
       <div class="card promoting-card shadow">
         <style type="text/css">
           .collapse-content .fa.fa-heart:hover {
-        color: #f44336 !important;
+        color: black !important;
       }
       .collapse-content .fa.fa-share-alt:hover {
         color: #0d47a1 !important;
@@ -46,10 +47,11 @@
             <p class="card-text  pt-3">
               <i class="far fa-clock pr-2">
 
-                  <form method="POST" enctype="multipart/form-data">
+                  <form method="POST"  enctype="multipart/form-data">
                       {% csrf_token %}
                       <fieldset class="form-group">
-                        <legend class="border-bottom mb-4" style="color: #09030a">Register Yourself As Customer</legend>
+                        
+<!--                        <legend class="border-bottom mb-4">Register Yourself As Employee</legend>-->
                         {{ form | crispy }}
                       </fieldset>
                       <div class="form-group">
@@ -60,7 +62,8 @@
               </i>
 
             </p>
-            <a href="{% url 'customerlogin' %}" class="card-link"><button class="btn btn-primary" style="background-color: black">Already Have a Account !</button></a>
+            <a href="{% url 'customerlogin' %}" class="card-link" ><button class="btn btn-primary" style="background-color: black">Already Have a Account !</button></a>
+            
 
           </div>
 

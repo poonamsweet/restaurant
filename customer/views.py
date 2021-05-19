@@ -15,8 +15,8 @@ from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
 from django.core.mail import EmailMessage
 from django.contrib.sites.shortcuts import get_current_site
 from django.contrib.auth import get_user_model
-from .forms import CustomerSignUpForm,BooktableForm
-from .models import User , Customer_Profile
+from .forms import CustomerSignUpForm,BooktableForm,UnknownBooktableForm
+from .models import User , Customer_Profile,Book_Table
 from customer.utils import account_activation_token
 from django.urls import reverse
 from django.utils.encoding import force_bytes, force_text, DjangoUnicodeDecodeError
@@ -24,7 +24,20 @@ from django.utils.encoding import force_bytes, force_text, DjangoUnicodeDecodeEr
 User=get_user_model()
 
 def Home(request):
-    return render(request, "index.html")
+      if request.method=="POST":
+        form = UnknownBooktableForm(request.POST)
+        print("-----",form)
+        if form.is_valid():
+            form.save()
+            print("form",form)
+            return redirect('home')
+
+  
+      
+      form= UnknownBooktableForm()
+      return render(request, "index.html",{"form":form})
+
+
 
 
 class EmailValidationView(View):
@@ -42,7 +55,7 @@ def register(request):
 
 
 def emaiverify(request):
-    return render(request,'emaiverify.html')
+    return render(request,'customer/emaiverify.html')
 
 
 
@@ -63,7 +76,7 @@ class Customer_Register(CreateView):
             'token': account_activation_token.make_token(user),
             }
 
-        link = reverse('activate', kwargs={
+        link = reverse('customeractivate', kwargs={
                                 'uidb64': email_body['uid'], 'token': email_body['token']})
         email_subject = 'Activate your account'
         activate_url = 'http://' + current_site.domain + link
@@ -73,7 +86,7 @@ class Customer_Register(CreateView):
              'noreply@semycolon.com',[email],)
         print(email)
         email.send(fail_silently=False)
-        return redirect('emaiverify')
+        return redirect('customeremailverify')
 
 class VerificationView(View):
     def get(self, request, uidb64, token):
@@ -82,7 +95,7 @@ class VerificationView(View):
             user = User.objects.get(pk=id)
 
             if not account_activation_token.check_token(user, token):
-                return redirect('login'+'?message='+'User already activated')
+                return redirect('customerlogin'+'?message='+'User already activated')
 
             if user.is_active:
                 return redirect('customerlogin')
@@ -94,7 +107,7 @@ class VerificationView(View):
         except Exception as ex:
             pass
 
-        return redirect('login')
+        return redirect('customerlogin')
 
 def CustomerLogin(request):
     if request.method == 'POST':
@@ -120,7 +133,7 @@ def CustomerLogin(request):
 def CustomerProfile(request):
     print("----user",request.user)
     customer_ = Customer_Profile.objects.filter(user=request.user)
-    print("---ggggg------",customer_)
+
     return render (request,  'customer/se_profile.html',{"customer":customer_})
 
 
@@ -135,15 +148,29 @@ def Dashboard(request):
 
 
 
-def Book_Table(request):
+def BookTable(request):
     if request.method=="POST":
-        form = BooktableForm(request.POST)
-        print("---",form)
+        bookuser = Customer_Profile.objects.get(user=request.user.id)
+        print("---bookuser----",bookuser)
+
+        form = BooktableForm(request.POST,instance=bookuser)
+
         if form.is_valid():
-            form.save()
+            user = form.save(commit=False)
+            book_date= form.cleaned_data['book_date']
+            book_time = form.cleaned_data['book_time']
+            place   = form.cleaned_data['place']
+            value = Book_Table(customervalue=bookuser,book_date=book_date,book_time=book_time,place=place)
+            value.save()
             return redirect('customerdashboard')
 
-    form= BooktableForm()
+    else:      
+       form= BooktableForm()
+       return render(request, "customer/booktable.html",{"form":form})
 
-    return render(request, "customer/booktable.html",{"form":form})
+
+
+
+
+  
 
