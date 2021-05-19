@@ -10,7 +10,7 @@ from . views import  Employee_Register,register,EmployyLogin,emaiverify,Logout,D
 
 
 urlpatterns = [
-    path('register/', register, name='register'),
+    # path('register/', register, name='register'),
     path('employeeregister/', Employee_Register.as_view(), name='employeeregister'),
     path('emailverify/', emaiverify, name="emaiverify"),
     path('validate_email', csrf_exempt(EmailValidationView.as_view()), name='validate_email'),
