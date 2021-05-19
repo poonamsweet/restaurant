@@ -1,0 +1,174 @@
+{% extends 'report/main3.html'%}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+
+          <!-- Page Heading -->
+          <h1 class="h3 mb-4 text-gray-800">DashBoard</h1>
+
+          <!--<div class="container"> 
+				<div class="container " style="margin-top: 10px; width: 20rem ; margin-left: 10px;">
+				      <div class="card-body shadow ">
+				          <div class="content-section border-bottom m-5 ">
+								 {% for leave in leave %} 
+								 		{{leave.user}}
+								 		{{leave.date}}
+								 		{{leave.reason}}
+								 {% endfor %}
+					      </div>
+					    </div>
+	
+					</div>
+					</div> -->
+
+
+		
+
+
+<div class="container mt-3">
+		<h3>Master List  Section - </h3>
+	<div class="row">
+	<div class="col-md-4 sm-4">
+          <div class="container"> 
+				<div class="container " style="margin-top: 10px; width: 20rem ; margin-left: 10px; font-size: 10px;">
+				      <div class="card-body shadow ">
+				      	<h4> Master List Doctor </h4>
+				          <div class="content-section border-bottom ">
+				          	<p><h5>
+								check your MAster Doctor List  Report here - </h5> 
+								<a href="{% url 'drlist'   %}" style="margin-top: 20px;"><button class="btn btn-primary">Check Details </button></a></p>
+								<p>
+								<a href="{% url 'drlistpdf'   %}" style="margin-top: 20px;"><button class="btn btn-primary">Download PDF</button></a><p>
+					   </div>
+				</div>
+			</div>
+	
+		</div>
+	</div>
+
+
+					<div class="col-md-4 sm-4">
+          <div class="container"> 
+				<div class="container " style="margin-top: 10px; width: 20rem ; margin-left: 10px; font-size: 10px;">
+				      <div class="card-body shadow ">
+				      		<h4>Master List Chemist </h4>
+				          <div class="content-section border-bottom ">
+<p><h5>check your master chemist list here  - </h5>
+<a href="{% url 'chemistlist' %}" style="margin-top: 20px;"><button class="btn btn-primary">Check Details </button></a></p>
+<p><a href="{% url 'chemistlistpdf'   %}" style="margin-top: 20px;"><button class="btn btn-primary">Download PDF</button></a></p>
+					      </div>
+					    </div>
+	
+					</div>
+					</div>
+
+	</div>
+					
+	<div class="container mt-3">
+	<h3>Monthly Plan Section -</h3>	
+		<div class="row">
+		<div class="col-md-4 sm-4">
+          <div class="container"> 
+				<div class="container " style="margin-top: 10px; width: 20rem ; margin-left: 10px; font-size: 10px;">
+				      <div class="card-body shadow ">
+				      		<h4> Month plan </h4>
+				          <div class="content-section border-bottom ">
+								<p><h5>check your month plan - </h5>
+								<a href="{% url 'month-planlist' %}" style="margin-top: 20px;"><button class="btn btn-primary">Check Details </button></a></p>
+								<p><a href="{% url 'monthlyplanpdf' %}" style="margin-top: 20px;"><button class="btn btn-primary">Download PDF</button></a></p>
+					      </div>
+					    </div>
+	
+					</div>
+					</div>			
+			</div>
+		</div>
+</div>
+
+
+
+<div class="container mt-3">
+	<h3>Daily Activites Section - </h3>
+		<div class="row">
+		<div class="col-md-4 sm-4">
+          <div class="container"> 
+				<div class="container " style="margin-top: 10px; width: 20rem ; margin-left: 10px; font-size: 10px;">
+				      <div class="card-body shadow ">
+				      	<h4>Field Report </h4>
+				          <div class="content-section border-bottom ">
+<p><h5>Check your daily feild activites  - </h5>
+<a href="{% url 'se_fieldactivity_pdf'   %}" style="margin-top: 20px;"><button class="btn btn-primary">Check Details </button></a></p>
+				<p>				<a href="{% url 'FieldActivites_pdf'   %}" style="margin-top: 20px;"><button class="btn btn-primary">Download PDF</button></a></p>
+					      </div>
+					    </div>
+	
+					</div>
+					</div>
+				</div>
+
+					<div class="col-sm-4 md-4" ></div>
+					<div class="container"> 
+						<div class="container " style="margin-top: 10px; width: 20rem ; margin-left: 10px; font-size: 10px;">
+							<div class="card-body shadow ">
+									<h4> Meeting Report  </h4>
+									
+									<p><h5>Check Meeting Activites -</h5> <br>
+									<a href="{% url 'MeetingActivites_pdfprofile'   %}" style="margin-top: 20px;"><button class="btn btn-primary">Check Details </button></a> </p>
+								
+									<a href="{% url 'MeetingActivites_pdf'   %}" style="margin-top: 20px;"><button class="btn btn-primary">Download PDF</button></a>
+							</div>
+						</div>
+						
+					</div>
+			</div>
+			<div class="col-sm-4 md-4" ></div>
+					<div class="container"> 
+						<div class="container " style="margin-top: 10px; width: 20rem ; margin-left: 10px; font-size: 10px;">
+							<div class="card-body shadow ">
+									<h4> Expenses Report  </h4>
+									
+									<p><h5>Check Expenses Activites -</h5> <br>
+									<a href="{% url 'expensesprofile'   %}" style="margin-top: 20px;"><button class="btn btn-primary">Check Details </button></a> </p>
+								
+									<a href="{% url 'expensespdf'   %}" style="margin-top: 20px;"><button class="btn btn-primary">Download PDF</button></a>
+							</div>
+						</div>
+						
+					</div>
+			</div>
+
+		</div>
+	</div>
+
+
+<div class="container mt-3">
+	<h3>Leave Section - </h3>
+
+		<div class="row">
+			
+			<div class = "col-sm-4 md-4">
+				<div class="container"> 
+						<div class="container " style="margin-top: 10px; width: 20rem ; margin-left: 10px; font-size: 10px;">
+									<div class="card-body shadow ">
+											  <h4>Leave Applied  -  </h4>
+											  <p><h5>Check Full Leave Details  - </h5> <br>
+											  <a href="{% url 'leavelist'   %}" style="margin-top: 20px;"><button class="btn btn-primary">Check Details </button></a> </p>
+											  
+											  <a href="{% url 'leavehrpdf' %}" style="margin-top: 20px;"><button class="btn btn-primary">Download PDF</button></a>
+									</div>
+							</div>
+						
+					</div>
+			</div>
+		</div>
+</div>										
+							
+	</div>
+
+        <!-- /.container-fluid -->
+
+{% endblock content %}

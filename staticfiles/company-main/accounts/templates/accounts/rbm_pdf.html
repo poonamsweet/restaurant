@@ -1,0 +1,140 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title> Report</title>
+    <style type="text/css">
+        @page {
+            size: A4;
+            margin: 1cm;
+        }
+
+        .table {
+            width: 100%;
+            max-width: 100%;
+            margin-bottom: 5px;
+            background-color: #fff;
+        }
+
+        .table th,
+        .table td {
+            padding: 5px;
+            vertical-align: top;
+            border-top: 1px solid #000;
+            text-align: center;
+        }
+
+        .table thead th {
+            vertical-align: bottom;
+            border-bottom: 2px solid #000;
+        }
+
+        .table tbody + tbody {
+            border-top: 2px solid #000;
+        }
+
+        .table .table {
+            background-color: #fff;
+        }
+
+        .list-group {
+            display: block;
+            width: 100%;
+            list-style: none;
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+
+        .list-group p {
+            width: 100%;
+            height: 20px;
+            line-height: 20px;
+            list-style: none;
+            font-size: 1.1em;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h3>Employee Profile - {{ today | date:"d/m/Y" }}</h3>
+            
+        </div>
+        <hr>
+
+        <div class="list-group">
+            <p>Name: {{ request.user.first_name }} {{ request.user.last_name }}</p>
+        </div>
+
+       
+       
+         
+                
+                    <h5>{{request.user.username}} Profile</h5>
+                     <h5> First Name - {{request.user.first_name}}</h5>
+                     <h5>Last Name - {{request.user.last_name}}</h5>
+                     <h5>Mobile Number-{{request.user.mobile_number}}</h5>
+                     <h5>Email-{{request.user.email}}</h5>
+               
+            {% for sale in rbm_pdf %}
+             
+                   
+                        <h5>Location -{{ sale.location }}</h5>
+                        <h5>Date of birth -{{ sale.birthdate }}</h5>
+                        <h5>Gender -{{ sale.gender }}</h5>
+                        <h5>Height- {{sale.height}}</h5>
+                        <h5> Weight-{{sale.weight}}</h5>
+                        <h5>Identification Mark - {{sale.identification_mark}}</h5>
+                        <h5>Blood Group{{sale.blood_group}}</h5>
+                        <h5>Maritual Status-{{sale.maritual_status}}</h5>
+                        <h5>Marriage Date-{{ sale.marriage_date }}</h5>
+                        <h5>Nationality-{{sale.Nationality}}</h5>
+                        <h5>Address Line 1-{{sale.address_line_1}}</h5>
+                        <h5>Address Line 2 -{{sale.address_line_2}}</h5>
+                        <h5>Pin-{{ sale.pin}}</h5>
+                        <h5>City-{{ sale.city }}</h5>
+                        <h5>State - {{ sale.state }}</h5>
+                        <h5>Bank Name-{{sale.bank_name}}</h5>
+                        <h5> Account No{{sale.account_no}}</h5>
+                        <h5>Pan No{{sale.pan_no}}</h5>
+                        <h5>Pan Pic{{ sale.pan_pic  }}</h5>
+                        <h5>Passport No -{{ sale.passport_no }}</h5>
+                        <h5>Passport Pic - {{ sale.passport_pic }}</h5>
+                        <h5>Driving License -{{sale.driving_license}}</h5>
+                        <h5>Driving License Pic - {{sale.driving_license_pic}}</h5>
+                        <h5>High School -{{sale.high_school}}</h5>
+                        <h5>High school Passing year -{{ sale.high_school_passing_year  }}</h5>
+                        <h5>High school Marks Obtained - {{ sale.high_school_marks_obtained }}</h5>
+                        <h5>High School certificate -{{ sale.high_school_cert }}</h5>
+                        <h5>Intermediate School-{{sale.intermediate_school}}</h5>
+                        <h5>Intermediate Passing Year{{sale.intermediate_passing_year}}</h5>
+                        <h5>Intermediate Marks Obtained{{sale.intermediate_marks_obtained}}</h5>
+                        <h5>Intermediate certification-{{ sale.intermediate_cert }}</h5>
+                        <h5>Degree obtained - {{ sale.Degree_obtained }}</h5>
+                        <h5>College Institute - {{ sale.college_institute }}</h5>
+                        <h5>Year Of Passing-{{sales.Year_of_passing}}</h5>
+                        <h5>Marks Obtained -{{sale.marks_obtained}}</h5>
+                        <h5>Degree Obtained-{{sale.Degree_obtained}}</h5>
+                        <h5>Experience - {{ sale.experience  }}</h5>
+                        <h5>Organisation Name - {{ sale.organisation_name }}</h5>
+                        <h5>Head Quarter - {{ sale.head_quater }}</h5>
+                        <h5>Date Of Joining - {{sale.date_of_joining}}</h5>
+                        <h5>Date Of Leaving - {{sale.date_of_leaving}}</h5>
+                        <h5>Father Name -{{sale.father_name}}</h5>
+                        <h5>Mother Name - {{sale.mother_name}}</h5>
+                        <h5>Brother - {{sale.brother}}</h5>
+                        <h5>Sister - {{sale.sister}}</h5>
+                        <h5>spouse Name - {{sale.spouse_name}}</h5>
+                        <h5>Children Count - {{sale.children_count}}</h5>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>
