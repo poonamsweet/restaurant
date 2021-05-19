@@ -48,3 +48,16 @@ class  Staff_Profile(models.Model):
 
 
 
+class EntryExit(models.Model):
+     employeename = models.CharField(max_length=35)
+     entry_time   = models.TimeField()
+     exit_time    = models.TimeField()
+     totol_hour   = models.IntegerField()
+
+     def __str__(self):
+         return self.employeename
+
+
+
+
+

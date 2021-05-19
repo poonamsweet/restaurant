@@ -1,6 +1,6 @@
 from django import forms
 from django.forms import ModelForm
-from .models import Employee_Profile,Staff_Profile
+from .models import Employee_Profile,Staff_Profile,EntryExit
 from django import forms
 from django.contrib.auth import get_user_model
 
@@ -134,6 +134,16 @@ class ProfileForm(forms.ModelForm):
                    "local_address","mobile"
                 )
 
+
+
+class EntryExitForm(forms.ModelForm):
+    entry_time = forms.TimeField(widget=forms.TimeInput(format='%H:%M'))
+    exit_time  = forms.TimeField(widget=forms.TimeInput(format='%H:%M'))
+
+
+    class Meta:
+        model = EntryExit
+        fields = ("entry_time","exit_time","totol_hour")
 
 
 

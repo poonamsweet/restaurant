@@ -11,7 +11,7 @@
 body {
   font-family: "Open Sans", sans-serif;
   background: #0c0b09;
-  color: #fff;
+  color: white;
 }
 
 a {
@@ -692,7 +692,7 @@ section {
 --------------------------------------------------------------*/
 .breadcrumbs {
   padding: 15px 0;
-  background: #1d1b16;
+  background: white;
   margin-top: 110px;
 }
 
@@ -723,7 +723,7 @@ section {
 .breadcrumbs ol li + li::before {
   display: inline-block;
   padding-right: 10px;
-  color: #37332a;
+  color: white;
   content: "/";
 }
 

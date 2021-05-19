@@ -16,12 +16,15 @@ from django.core.mail import EmailMessage
 from django.contrib.sites.shortcuts import get_current_site
 from django.contrib.auth import get_user_model
 from .forms import EmployeeSignUpForm
-from .models import User , Employee_Profile
+from .models import User , Employee_Profile,EntryExit
 from employee.utils import account_activation_token
 from django.urls import reverse
 from django.utils.encoding import force_bytes, force_text, DjangoUnicodeDecodeError
 from .forms import ProfileForm
-User=get_user_model()
+from customer.models import User,Customer_Profile
+
+
+from .forms import EntryExitForm
 
 
 
@@ -49,7 +52,7 @@ def emaiverify(request):
 class Employee_Register(CreateView):
     model = Employee_Profile
     form_class = EmployeeSignUpForm
-    template_name = 'employee/emp_register.html'
+    template_name = 'employee/admin_register.html'
 
     def form_valid(self,form):
         user = form.save()
@@ -94,8 +97,10 @@ class VerificationView(View):
 
         return redirect('login')
 
-def Login(request):
+def EmployyLogin(request):
     if request.method == 'POST':
+        user_ = User.objects.all()
+
         form = AuthenticationForm(request=request, data=request.POST)
         if form.is_valid():
             username = form.cleaned_data.get('username')
@@ -103,7 +108,7 @@ def Login(request):
             user = authenticate(username=username, password=password)
             if user is not None:
                 login(request, user)
-                return redirect('dashboard')
+                return redirect('employeedashboard')
 
 
 
@@ -111,7 +116,7 @@ def Login(request):
                 messages.error(request, "Invalid username or password")
         else:
             messages.error(request, "Invalid username or password")
-    return render(request, 'login.html', context={'form': AuthenticationForm()})
+    return render(request, 'employee/employeelogin.html', context={'form': AuthenticationForm()})
 
 
 
@@ -121,7 +126,11 @@ def Logout(request):
 
 
 def Dashboard(request):
-    return render(request,"dashboard.html")
+    customer = Customer_Profile.objects.all()
+    employee = Employee_Profile.objects.all()
+    print("customer ", customer)
+    print("customer ", employee)
+    return render(request,"employee/employeedashboard.html")
 
 
 def E_Profile(request):
@@ -129,3 +138,20 @@ def E_Profile(request):
     emp_ = Employee_Profile.objects.filter(user=request.user)
     print("---ggggg------",emp_)
     return render (request,  'employee/emp_profile.html',{"emp_profile":emp_})
+
+
+def EntryExit(request):
+    if request.method == "POST":
+        form = EntryExitForm(request.POST)
+        if form.is_valid():
+            entryform = form.save(commit=False)
+            entryform.employeename= request.user
+
+            entryform.save()
+            return redirect('dashboard')
+    form = EntryExitForm()
+    return render (request,  'employee/entryexit.html',{"form":form})
+
+
+def Waiterdashboard(request):
+    return render(request,"employee/waiterdashboard.html")

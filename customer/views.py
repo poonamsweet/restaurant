@@ -85,18 +85,18 @@ class VerificationView(View):
                 return redirect('login'+'?message='+'User already activated')
 
             if user.is_active:
-                return redirect('login')
+                return redirect('customerlogin')
             user.is_active = True
             user.save()
             messages.success(request, 'Account activated successfully')
-            return redirect('login')
+            return redirect('customerlogin')
 
         except Exception as ex:
             pass
 
         return redirect('login')
 
-def Login(request):
+def CustomerLogin(request):
     if request.method == 'POST':
         form = AuthenticationForm(request=request, data=request.POST)
         if form.is_valid():
@@ -105,7 +105,9 @@ def Login(request):
             user = authenticate(username=username, password=password)
             if user is not None:
                 login(request, user)
-                return redirect('dashboard')
+                if user.is_customer == True:
+                    print("------cutomer---")
+                    return redirect('customerdashboard')
 
 
 
@@ -113,7 +115,13 @@ def Login(request):
                 messages.error(request, "Invalid username or password")
         else:
             messages.error(request, "Invalid username or password")
-    return render(request, 'login.html', context={'form': AuthenticationForm()})
+    return render(request, 'customer/customerlogin.html', context={'form': AuthenticationForm()})
+
+def CustomerProfile(request):
+    print("----user",request.user)
+    customer_ = Customer_Profile.objects.filter(user=request.user)
+    print("---ggggg------",customer_)
+    return render (request,  'customer/se_profile.html',{"customer":customer_})
 
 
 
@@ -123,7 +131,7 @@ def Logout(request):
     return redirect('register')
 
 def Dashboard(request):
-    return render(request,"dashboard.html")
+    return render(request,"customer/customerdashboard.html")
 
 
 
@@ -133,7 +141,7 @@ def Book_Table(request):
         print("---",form)
         if form.is_valid():
             form.save()
-            return redirect('dashboard')
+            return redirect('customerdashboard')
 
     form= BooktableForm()
 

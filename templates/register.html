@@ -1,7 +1,7 @@
-{% extends 'main.html'%}
+{% extends 'info/main.html'%}
 {% load static %}
 {% block content %}
-	
+
 	    <!-- ======= Breadcrumbs Section ======= -->
     <section class="breadcrumbs">
       <div class="container">
@@ -16,60 +16,33 @@
 
       </div>
     </section><!-- End Breadcrumbs Section -->
-	
-<div class="container mt-3">
-	<div class="row">
-		<div class="col-md-3 sm-3" >
-			<div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
-		  	<div class="card-header" style="background-color: #cda45e">Sign Up As <br> <span class="badge badge-warning" style="font-size: 14px;"> Employee </span></div>
-			  	<div class="card-body" style="background-color: #cda45e">
-			    	<a href="{% url 'employeeregister' %}" class="card-link"><li class="list-group-item">Register Me</li></a>
-			  	</div>
-			</div>
-		</div>
-		<div class="col-md-3 sm-3">
-			<div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
-		  	<div class="card-header"  style="background-color: #cda45e">Sign Up As <br> <span class="badge badge-warning" style="font-size: 14px;"> Customer </span> </div>
-			  	<div class="card-body"  style="background-color: #cda45e">
-			    	<a href="{% url 'customerregister' %}" class="card-link" ><li class="list-group-item">Register Me </li></a>
-			  	</div>
-			</div>
-		</div>
-		<div class="col-md-3 sm-3">
-			<div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
-		  	<div class="card-header"  style="background-color: #cda45e">Sign Up As <br> <span class="badge badge-warning" style="font-size: 14px;"> staff </span> </div>
-			  	<div class="card-body"  style="background-color: #cda45e">
-			    	<a href="{% url 'employeeregister' %}" class="card-link"><li class="list-group-item">Register Me  </li></a>
-			  	</div>
-			</div>
-		</div>
-		<div class="col-md-3 sm-3">
-			<div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
-		  	<div class="card-header"  style="background-color: #cda45e">Sign Up As <br> <span class="badge badge-warning" style="font-size: 14px;"> Admin </span> </div>
-			  	<div class="card-body"  style="background-color: #cda45e">
-			    	<a href="{% url 'admin:index' %}" class="card-link"><li class="list-group-item">Register Me  </li></a>
-			  	</div>
-			</div>
-		</div>
+    <div class="row" style="color: black">
+		<div class="col-6" style="height: 300px"><button class="btn-circle" style="margin-top: 80px;width: 200px;margin-left: 500px;border: 2px solid #008CBA;"> <a href="{% url 'employeeregister' %}" style="font-size: large">Employee</a></button></div>
+       <div class="col-6" style="height: 300px"><button class="btn-circle" style="margin-top: 80px;width: 200px;margin-right: 500px;border: 2px solid #008CBA;"> <a href="{% url  'customerregister' %}" style="font-size: large">Customer</a></button></div>
+		<div></div>
+	</div>
+
+
+
 
 		<div class="card-body">
-		    <a href="" class="card-link">Already Have a Account !</a>
+		    <a href="{% url 'customerlogin' %}" class="card-link">Already Have a Account !</a>
 		    <a href="" class="card-link">Forget Password</a>
 		</div>
 
 
-  	</div>
+  	</>
 </div>
-		
+
 {% endblock content %}
 
 
 
 <!--<div class="card" style="width: 30rem;">
-		  
+
 		  <div class="card-body text-center">
 		    <h5 class="card-title">Wanna Register Yourself ?</h5>
-		    <p class="card-text"></p>
+		    <p class="card-text">This Register Page is only for Synaptrics Lifescience employee to register theirself with thier Role in company .</p>
 		  </div>
 		  <ul class="list-group list-group-flush">
 		    <a href="{% url 'se_register' %}" class="card-link"><li class="list-group-item">Sign Up as Sales Executive</li></a>

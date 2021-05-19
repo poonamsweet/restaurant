@@ -145,7 +145,7 @@ def SignUpForm(request):
                 user.save()
                 sales_user=Salesexecutive(profile=extended_user,user=user)
                 sales_user.save()
-                return render(request,"../templates/accounts/login.html",{"message":"Signned Up Successfully!"})
+                return render(request,"../templates/accounts/adminlogin.html",{"message":"Signned Up Successfully!"})
                 
 
 
@@ -290,7 +290,7 @@ def login_request(request):
                 messages.error(request,"Invalid username or password")
         else:
                 messages.error(request,"Invalid username or password")
-    return render(request, '../templates/accounts/login.html',
+    return render(request, '../templates/accounts/adminlogin.html',
     context={'form':AuthenticationForm()})
 
 def logout_view(request):

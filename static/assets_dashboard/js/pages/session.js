@@ -6,7 +6,7 @@ $(document).ready(function() {
             $('#idle-modal').modal('show');
             $( document ).idleTimer( 5000 );
             var logOut = setTimeout(function() {
-                window.location.href = "login.html";
+                window.location.href = "adminlogin.html";
             }, 10000);
             
             var sec = 10;

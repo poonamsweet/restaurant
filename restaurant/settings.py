@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'info',
     'customer',
     'employee',
+    'admindash',
+
 
     'crispy_forms',
     "bootstrap4",
@@ -90,7 +92,7 @@ WSGI_APPLICATION = 'restaurant.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': str(os.path.join(BASE_DIR / 'db.sqlite3')),
     }
 }
 
@@ -167,7 +169,7 @@ AUTH_USER_MODEL = 'customer.User'
 DATE_INPUT_FORMATS = ['%d-%m-%Y']
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
-TIME_INPUT_FORMATS = ['%I:%M %p',]
+# TIME_INPUT_FORMATS = ['%I:%M %p',]
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 

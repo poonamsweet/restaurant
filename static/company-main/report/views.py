@@ -13,7 +13,7 @@ from .render import Render
 # Create your views here.
 
 def home (request):
-	return render(request, 'report/dashboard.html')
+	return render(request, 'report/adminhome.html')
 
 
 

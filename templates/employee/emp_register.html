@@ -11,7 +11,7 @@
           <h2>Where Are You ?</h2>
           <ol>
             <li><a href="index.html">Home</a></li>
-            <li>Employee Registration Page</li>
+            <li>Employee Attandance Form</li>
           </ol>
         </div>
 
@@ -19,13 +19,13 @@
       </div>
     </section><!-- End Breadcrumbs Section -->
 
-<div class="container" style="margin-top: 50px; width: 50rem;" >
+<div class="container" style="margin-top: 50px; width: 50rem;color: black" >
   <div class="row">
     <div class="col-md-10 sm-6" style="padding: 10px;">
       <div class="card promoting-card shadow">
         <style type="text/css">
           .collapse-content .fa.fa-heart:hover {
-        color: #f44336 !important;
+        color: black !important;
       }
       .collapse-content .fa.fa-share-alt:hover {
         color: #0d47a1 !important;
@@ -51,7 +51,7 @@
                       {% csrf_token %}
                       <fieldset class="form-group">
                         
-                        <legend class="border-bottom mb-4">Register Yourself As Employee</legend>
+<!--                        <legend class="border-bottom mb-4">Register Yourself As Employee</legend>-->
                         {{ form | crispy }}
                       </fieldset>
                       <div class="form-group">

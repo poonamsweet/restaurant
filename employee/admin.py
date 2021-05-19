@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Employee_Profile
+from .models import Employee_Profile,EntryExit
 
 
 
@@ -15,3 +15,4 @@ class Employee_ProfileAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Employee_Profile, Employee_ProfileAdmin)
+admin.site.register(EntryExit)
