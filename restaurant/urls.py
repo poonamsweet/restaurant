@@ -21,5 +21,5 @@ urlpatterns = [
     path('employee/', include('employee.urls')),
 
     path('admin_login/', include('admindash.urls')),
-    path('customer/',include('customer.urls')),
+    path('',include('customer.urls')),
 ]
